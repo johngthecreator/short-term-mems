@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {pipeline } from '@huggingface/transformers';
 import { ArrowRightIcon } from "lucide-react";
 import { useState } from "react";
@@ -21,27 +20,14 @@ const vectorize = async (query: string) => {
     return output.tolist()
 }
 
-const bookQueries = [
-    "I like books about forgotten realms where magic is hidden, waiting for someone to discover it.",
-    "I like stories of fierce heroines who defy fate and rise to power against all odds.",
-    "I like fantasy novels with ancient prophecies, powerful artifacts, and kingdoms on the brink of war.",
-    "I like books with time-traveling adventurers who witness major historical events and shape the future.",
-    "I like stories where unlikely friends embark on epic journeys and discover the true meaning of loyalty.",
-    "I like dark mysteries set in creepy mansions, where every room hides a terrible secret.",
-    "I like thrilling heist stories with clever masterminds, high-stakes risks, and twist-filled plots.",
-    "I like romantic stories set in magical realms where love defies curses and ancient feuds.",
-    "I like books about clever detectives solving complex puzzles in small towns with a dark past.",
-    "I like novels where explorers venture into mysterious lands, facing creatures and wonders beyond imagination."
-  ];
+const pageTitles = [
+"romance",
+"mystery",
+"thriller",
+"journey"
+]
 
-  const pageTitles = [
-    "romance",
-    "mystery",
-    "thriller",
-    "journey"
-  ]
-
-    const indexed = Math.floor(Math.random() * 4)
+const indexed = Math.floor(Math.random() * 4)
 
 export default function Home () {
     const [query, setQuery] = useState<string>("");
